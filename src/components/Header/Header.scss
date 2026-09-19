@@ -1,10 +1,12 @@
 .header {
-  padding: 15px 0;
-
-  &__container {
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 30px;
+    background-color: var(--color-white);
   }
 }
 
@@ -47,8 +49,8 @@
       justify-content: center;
       top: -10px;
       right: -10px;
-      width: 20px;
-      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
       border-radius: 50%;
       color: var(--color-white);
       font-size: 12px;
