@@ -1,0 +1,86 @@
+.header {
+  padding: 15px 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  transition: color .2s ease;
+
+  &:focus-visible {
+    outline: none;
+    color: var(--color-orange);
+  }
+
+  &:hover:not(:focus-visible) {
+    color: var(--color-orange);
+  }
+
+  &:active:not(:focus-visible) {
+    color: var(--color-dark);
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__link {
+    position: relative;
+
+    &::before {
+      content: attr(data-count);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: -10px;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: var(--color-white);
+      font-size: 12px;
+      font-weight: 500;
+      background-color: var(--color-orange);
+    }
+
+    svg {
+      display: block;
+      path {
+        transition: fill .2s ease;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+      svg path {
+        fill: var(--color-orange);
+      }
+    }
+
+    &:hover:not(:focus-visible) {
+      svg path {
+        fill: var(--color-orange);
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      svg path {
+        fill: var(--color-dark);
+      }
+    }
+
+  }
+}

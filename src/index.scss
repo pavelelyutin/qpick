@@ -25,6 +25,9 @@
 :root {
     --color-bg: #eaeaea;
     --color-dark: #101010;
+    --color-white: #ffffff;
+    --color-orange: #ffa542;
+    --color-gray: #838383;
 }
 
 *, *:before, *:after {
@@ -32,13 +35,32 @@
 }
 
 body {
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-bg);
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-style: none; /* Убирает рамку у картинок-ссылок в старых IE */
+}
+
 .list-reset {
     margin: 0;
+    padding: 0;
     list-style-type: none;
+}
+
+.button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: inherit;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .container {
