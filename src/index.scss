@@ -40,11 +40,21 @@ body {
     background-color: var(--color-bg);
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 30px 0;
+}
+
 img {
     display: block;
     max-width: 100%;
     height: auto;
-    border-style: none; /* Убирает рамку у картинок-ссылок в старых IE */
 }
 
 .list-reset {

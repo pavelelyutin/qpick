@@ -1,0 +1,19 @@
+.not-found {
+  text-align: center;
+  padding: 60px 0;
+
+  &__title {
+    font-size: 72px;
+    color: var(--color-accent);
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+  }
+
+  &__link {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
