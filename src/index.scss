@@ -16,6 +16,14 @@
 
 @font-face {
     font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
     src: url('./assets/fonts/Montserrat-Bold.woff2') format('woff2');
     font-style: normal;
     font-weight: 700;
@@ -27,7 +35,9 @@
     --color-dark: #101010;
     --color-white: #ffffff;
     --color-orange: #ffa542;
+    --color-gold: #ffce7f;
     --color-gray: #838383;
+    --color-text: #1c1c27;
 }
 
 *, *:before, *:after {
@@ -78,4 +88,16 @@ img {
     margin: 0 auto;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.section {
+    padding: 30px 0;
+
+    &__title {
+        margin: 0;
+        margin-bottom: 20px;
+        color: var(--color-gray);
+        font-size: 20px;
+        font-weight: 600;
+    }
 }
