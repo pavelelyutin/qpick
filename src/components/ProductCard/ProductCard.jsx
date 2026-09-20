@@ -1,4 +1,5 @@
 import './ProductCard.scss'
+import { formatPrice } from "../../utils/formatPrice.js";
 
 function ProductCard({ product, onClickBuy }) {
   return (
@@ -9,9 +10,9 @@ function ProductCard({ product, onClickBuy }) {
       <div className="product__info">
         <h3 className="product__title">{product.title}</h3>
         <div className="product__prices">
-          <span className="product__price">{product.price} ₽</span>
+          <span className="product__price">{formatPrice(product.price)}</span>
           {product.oldPrice && (
-            <span className="product__price product__price--old">{product.oldPrice} ₽</span>
+            <span className="product__price product__price--old">{formatPrice(product.oldPrice)}</span>
           )}
         </div>
       </div>

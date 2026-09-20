@@ -3,13 +3,20 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './Layout.scss';
 
-function Layout() {
+function Layout({ cartItems, addToCart, removeFromCart, changeQuantity }) {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems} />
 
       <main className="main">
-        <Outlet/>
+        <Outlet
+          context={{
+            cartItems,
+            addToCart,
+            removeFromCart,
+            changeQuantity,
+          }}
+        />
       </main>
 
       <Footer/>

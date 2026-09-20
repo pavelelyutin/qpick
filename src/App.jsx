@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { PATHS } from "./routes/paths.js";
 import Layout from "./components/Layout/Layout";
@@ -5,14 +6,65 @@ import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import CartPage from "./pages/CartPage/CartPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import './App.scss'
+import './App.scss';
+
+const STORAGE_KEY = 'qpick_cart';
+
+function getInitialCart() {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
 
 function App() {
+  const [cartItems, setCartItems] = useState(getInitialCart);
+
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (product) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...prev, { id: product.id, quantity: 1 }];
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  }
+
+  const changeQuantity = (id, quantity) => {
+    if (quantity < 1) return;
+
+    setCartItems((prev) => {
+      prev.map((item) => item.id === id ? {...item, quantity} : item);
+    })
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={PATHS.HOME} element={<Layout />}>
+        <Route path={PATHS.HOME} element={
+          <Layout
+            cartItems={cartItems}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            changeQuantity={changeQuantity}
+          />
+        }>
           <Route index element={<CatalogPage />} />
           <Route path={PATHS.CART} element={<CartPage />} />
           <Route path={PATHS.FAVORITES} element={<FavoritesPage />} />
