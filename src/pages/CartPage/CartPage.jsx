@@ -1,9 +1,38 @@
-import {useOutletContext} from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import './CartPage.scss';
-import {products} from '../../data/products.js';
+import { products } from '../../data/products';
+import { PATHS } from '../../routes/paths';
+import CartItem from '../../components/CartItem/CartItem.jsx';
+import {formatPrice} from "../../utils/formatPrice.js";
 
 function CartPage() {
-  const {cartItems} = useOutletContext();
+  const { cartItems, changeQuantity, removeFromCart } = useOutletContext();
+
+  const itemsWithProducts = cartItems
+    .map((item) => {
+      const product = products.find((p) => p.id === item.id);
+      return product ? { ...product, quantity: item.quantity } : null;
+    })
+    .filter(Boolean);
+
+  const totalPrice = itemsWithProducts.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
+
+  if (itemsWithProducts.length === 0) {
+    return (
+      <div className="cart-page cart-page--empty">
+        <h1 className="cart-page__title">Корзина пуста</h1>
+        <p className="cart-page__text">
+          Добавьте товары из каталога, чтобы оформить заказ
+        </p>
+        <Link to={PATHS.HOME} className="cart-page__back">
+          Вернуться в каталог
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <section className="section cart">
@@ -12,35 +41,30 @@ function CartPage() {
 
         <div className="cart__wrapper">
           <ul className="cart__list list-reset">
-            <li className="cart__item">
-              <article className="cart__product cart-product">
-                <button className="cart-product__remove button-reset">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 3.6H18V5.4H16.2V17.1C16.2 17.3387 16.1052 17.5676 15.9364 17.7364C15.7676 17.9052 15.5387 18 15.3 18H2.7C2.46131 18 2.23239 17.9052 2.0636 17.7364C1.89482 17.5676 1.8 17.3387 1.8 17.1V5.4H0V3.6H4.5V0.9C4.5 0.661305 4.59482 0.432387 4.7636 0.263604C4.93239 0.0948211 5.16131 0 5.4 0H12.6C12.8387 0 13.0676 0.0948211 13.2364 0.263604C13.4052 0.432387 13.5 0.661305 13.5 0.9V3.6ZM14.4 5.4H3.6V16.2H14.4V5.4ZM10.2726 10.8L11.8638 12.3912L10.5912 13.6638L9 12.0726L7.4088 13.6638L6.1362 12.3912L7.7274 10.8L6.1362 9.2088L7.4088 7.9362L9 9.5274L10.5912 7.9362L11.8638 9.2088L10.2726 10.8ZM6.3 1.8V3.6H11.7V1.8H6.3Z" fill="#DF6464"/>
-                  </svg>
-                </button>
-                <div className="cart-product__top">
-                  <div className="cart-product__image">
-                    <img src={products[0].image} width={150} alt=""/>
-                  </div>
-                  <div className="cart-product__info">
-                    <h3 className="cart-product__title">{products[0].title}</h3>
-                    <span className="cart-product__price">{products[0].price} Р</span>
-                  </div>
-                </div>
-                <div className="cart-product__bottom">
-                  <div className="cart-product__count">1</div>
-                  <span className="cart-product__summary">{products[0].price} Р</span>
-                </div>
-              </article>
-            </li>
+
+            {itemsWithProducts.map((item) => (
+              <li className="cart__item" key={item.id}>
+                <CartItem item={item} onChangeQuantity={changeQuantity} onRemove={removeFromCart} />
+              </li>
+            ))}
+
           </ul>
 
+          <div className="cart__summary summary">
+            <div className="summary__info">
+              <span className="summary__text">Итого</span>
+              <span className="summary__price">{formatPrice(totalPrice)}</span>
+            </div>
+            <button type="button" className="summary__button button-reset">Перейти к оформлению</button>
+          </div>
+
         </div>
+
+        <h1>Корзина</h1>
+        <p>Позиций: {cartItems.length}</p>
+        <pre>{JSON.stringify(cartItems, null, 2)}</pre>
       </div>
-      {/*<h1>Корзина</h1>*/}
-      {/*<p>Позиций: {cartItems.length}</p>*/}
-      {/*<pre>{JSON.stringify(cartItems, null, 2)}</pre>*/}
+
     </section>
   );
 
