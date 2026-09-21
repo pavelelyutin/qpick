@@ -50,7 +50,7 @@ function App() {
     if (quantity < 1) return;
 
     setCartItems((prev) => {
-      prev.map((item) => item.id === id ? {...item, quantity} : item);
+      return prev.map((item) => item.id === id ? {...item, quantity} : item);
     })
   }
 

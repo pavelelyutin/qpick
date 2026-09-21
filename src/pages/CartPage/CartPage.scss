@@ -2,7 +2,7 @@
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-     gap: 25px;
+    gap: 25px;
   }
 
   &__list {
@@ -11,40 +11,41 @@
     flex-direction: column;
     gap: 20px;
   }
-}
 
-.summary {
-  align-self: start;
-  position: relative;
-  grid-column: 9 / 13;
-
-  &__info {
+  &__empty {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 100px 0;
+  }
+
+  &__image {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  &__back {
     border-radius: 30px;
-    padding: 20px 30px 60px 30px;
-    background-color: var(--color-white);
-    font-weight: 600;
-  }
-
-  &__text {
-    text-transform: uppercase;
-  }
-
-  &__button {
-    position: absolute;
-    bottom: -20px;
-    width: 100%;
-    border-radius: 20px;
     padding: 20px 30px;
-    text-align: center;
+    text-decoration: none;
     color: var(--color-white);
     background-color: var(--color-dark);
-    transition: background-color .2s ease, outline .2s ease;
+    transition: background-color 0.2s ease, outline 0.2s ease;
 
     &:focus-visible {
-      outline: 2px dotted var(--color-orange);
+      outline: 2px solid var(--color-orange);
       outline-offset: 2px;
       background-color: var(--color-orange);
     }

@@ -1,0 +1,46 @@
+.summary {
+  align-self: start;
+  position: sticky;
+  top: 120px;
+  grid-column: 9 / 13;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    padding: 20px 30px 60px 30px;
+    background-color: var(--color-white);
+    font-weight: 600;
+  }
+
+  &__text {
+    text-transform: uppercase;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px 30px;
+    text-align: center;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+    transition: background-color .2s ease, outline .2s ease;
+
+    &:focus-visible {
+      outline: 2px dotted var(--color-orange);
+      outline-offset: 2px;
+      background-color: var(--color-orange);
+    }
+
+    &:hover:not(:focus-visible) {
+      background-color: var(--color-orange);
+    }
+
+    &:active:not(:focus-visible) {
+      background-color: var(--color-dark);
+    }
+  }
+}

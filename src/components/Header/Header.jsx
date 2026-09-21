@@ -1,8 +1,30 @@
-import {Link} from 'react-router-dom';
-import {PATHS} from '../../routes/paths';
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { PATHS } from '../../routes/paths';
 import './Header.scss'
 
 function Header({cartItems}) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Если прокрутили больше чем на 10px, меняем состояние
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Добавляем слушатель при монтировании
+    window.addEventListener('scroll', handleScroll);
+
+    // Удаляем слушатель при размонтировании (очистка памяти)
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const favoritesCount = 2;
 
   const cartCount = cartItems.reduce(
@@ -11,7 +33,7 @@ function Header({cartItems}) {
   );
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header__container">
         <div className="header__wrapper">
           <Link to={PATHS.HOME} className="logo header__logo">

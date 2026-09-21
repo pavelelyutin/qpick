@@ -1,9 +1,10 @@
 import { Link, useOutletContext } from 'react-router-dom';
 import './CartPage.scss';
+import cartEmptyImage from '../../assets/illustrations/cart.svg';
 import { products } from '../../data/products';
 import { PATHS } from '../../routes/paths';
 import CartItem from '../../components/CartItem/CartItem.jsx';
-import {formatPrice} from "../../utils/formatPrice.js";
+import CartSummary from '../../components/CartSummary/CartSummary.jsx';
 
 function CartPage() {
   const { cartItems, changeQuantity, removeFromCart } = useOutletContext();
@@ -22,15 +23,21 @@ function CartPage() {
 
   if (itemsWithProducts.length === 0) {
     return (
-      <div className="cart-page cart-page--empty">
-        <h1 className="cart-page__title">Корзина пуста</h1>
-        <p className="cart-page__text">
-          Добавьте товары из каталога, чтобы оформить заказ
-        </p>
-        <Link to={PATHS.HOME} className="cart-page__back">
-          Вернуться в каталог
-        </Link>
-      </div>
+      <section className="section cart">
+        <div className="container cart__container">
+          <div className="cart__empty">
+            <img className="cart__image" src={cartEmptyImage} alt="Изображение пустой корзины"/>
+            <span className="cart__title">Корзина пустая</span>
+            <p className="cart__description">
+              Добавьте товары из каталога, чтобы оформить заказ
+            </p>
+            <Link to={PATHS.HOME} className="cart__back button-reset">
+              Вернуться в каталог
+            </Link>
+          </div>
+
+        </div>
+      </section>
     );
   }
 
@@ -41,28 +48,21 @@ function CartPage() {
 
         <div className="cart__wrapper">
           <ul className="cart__list list-reset">
-
             {itemsWithProducts.map((item) => (
               <li className="cart__item" key={item.id}>
-                <CartItem item={item} onChangeQuantity={changeQuantity} onRemove={removeFromCart} />
+                <CartItem
+                  item={item}
+                  onChangeQuantity={changeQuantity}
+                  onRemove={removeFromCart}
+                />
               </li>
             ))}
-
           </ul>
-
-          <div className="cart__summary summary">
-            <div className="summary__info">
-              <span className="summary__text">Итого</span>
-              <span className="summary__price">{formatPrice(totalPrice)}</span>
-            </div>
-            <button type="button" className="summary__button button-reset">Перейти к оформлению</button>
-          </div>
-
+          <CartSummary totalPrice={totalPrice} onCheckout={() => {}} />
         </div>
 
-        <h1>Корзина</h1>
-        <p>Позиций: {cartItems.length}</p>
-        <pre>{JSON.stringify(cartItems, null, 2)}</pre>
+       {/*<p>Позиций: {cartItems.length}</p>*/}
+       {/* <pre>{JSON.stringify(cartItems, null, 2)}</pre>*/}
       </div>
 
     </section>
