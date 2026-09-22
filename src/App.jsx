@@ -8,11 +8,12 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import './App.scss';
 
-const STORAGE_KEY = 'qpick_cart';
+const CART_KEY = 'qpick_cart';
+const FAVORITES_KEY = 'qpick_favorites';
 
-function getInitialCart() {
+function getStorage(key) {
   try {
-    const raw = sessionStorage.getItem(STORAGE_KEY);
+    const raw = sessionStorage.getItem(key);
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
@@ -20,11 +21,16 @@ function getInitialCart() {
 }
 
 function App() {
-  const [cartItems, setCartItems] = useState(getInitialCart);
+  const [cartItems, setCartItems] = useState(() => getStorage(CART_KEY));
+  const [favorites, setFavorites] = useState(() => getStorage(FAVORITES_KEY));
 
   useEffect(() => {
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
+    sessionStorage.setItem(CART_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    sessionStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+  }, [favorites]);
 
   const addToCart = (product) => {
     setCartItems((prev) => {
@@ -54,15 +60,23 @@ function App() {
     })
   }
 
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((favoritesId) => favoritesId !== id) : [...prev, id],
+    );
+  };
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path={PATHS.HOME} element={
           <Layout
             cartItems={cartItems}
+            favorites={favorites}
             addToCart={addToCart}
             removeFromCart={removeFromCart}
             changeQuantity={changeQuantity}
+            toggleFavorite={toggleFavorite}
           />
         }>
           <Route index element={<CatalogPage />} />

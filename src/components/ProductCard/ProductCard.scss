@@ -1,4 +1,5 @@
 .product {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -110,6 +111,43 @@
 
     &:active:not(:focus-visible) {
       color: var(--color-dark);
+    }
+  }
+
+  &__favorite {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+
+    &.active {
+      svg path {
+        fill: var(--color-red);
+        stroke: var(--color-red);
+      }
+    }
+
+    svg path {
+      transition: fill .2s ease, stroke .2s ease;
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      svg path {
+        stroke: var(--color-orange);
+      }
+    }
+
+    &:hover:not(:focus-visible) {
+      svg path {
+        stroke: var(--color-orange);
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      svg path {
+        stroke: var(--color-gold);
+      }
     }
   }
 }

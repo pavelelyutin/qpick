@@ -3,18 +3,20 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './Layout.scss';
 
-function Layout({ cartItems, addToCart, removeFromCart, changeQuantity }) {
+function Layout({ cartItems, favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite }) {
   return (
     <>
-      <Header cartItems={cartItems} />
+      <Header cartItems={cartItems} favorites={favorites} />
 
       <main className="main">
         <Outlet
           context={{
             cartItems,
+            favorites,
             addToCart,
             removeFromCart,
             changeQuantity,
+            toggleFavorite,
           }}
         />
       </main>
