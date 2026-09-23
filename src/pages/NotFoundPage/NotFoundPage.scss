@@ -1,19 +1,51 @@
 .not-found {
   text-align: center;
-  padding: 60px 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+  }
+
+  &__image {
+    margin-bottom: 30px;
+  }
 
   &__title {
-    font-size: 72px;
-    color: var(--color-accent);
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
   }
 
-  &__text {
-    margin-bottom: 20px;
-    color: var(--color-text-secondary);
+  &__description {
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
   }
 
-  &__link {
-    color: var(--color-accent);
-    text-decoration: underline;
+  &__back {
+    border-radius: 30px;
+    padding: 20px 30px;
+    text-decoration: none;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+    transition: background-color 0.2s ease, outline 0.2s ease;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-orange);
+      outline-offset: 2px;
+      background-color: var(--color-orange);
+    }
+
+    &:hover:not(:focus-visible) {
+      background-color: var(--color-orange);
+    }
+
+    &:active:not(:focus-visible) {
+      background-color: var(--color-dark);
+    }
   }
 }
