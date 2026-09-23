@@ -35,7 +35,6 @@ function CartPage() {
               Вернуться в каталог
             </Link>
           </div>
-
         </div>
       </section>
     );

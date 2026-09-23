@@ -91,7 +91,7 @@
 
   &__button {
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: 4px 10px;
     font-size: 18px;
     font-weight: 600;
     transition: color .2s ease;
@@ -111,6 +111,42 @@
 
     &:active:not(:focus-visible) {
       color: var(--color-dark);
+    }
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__quantity {
+    width: 20px;
+    text-align: center;
+  }
+
+  &__decrement,
+  &__increment {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 20px;
+    line-height: 14px;
+    background-color: var(--color-gold);
+    transition: background-color .2s ease, outline .2s ease;
+
+    &:focus-visible {
+      outline: 2px dotted var(--color-orange);
+      outline-offset: 2px;
+    }
+
+    &:hover:not(:focus-visible) {
+      background-color: var(--color-orange);
+    }
+
+    &:active:not(:focus-visible) {
+      background-color: var(--color-gold);
     }
   }
 

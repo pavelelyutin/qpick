@@ -1,7 +1,19 @@
 import './ProductCard.scss'
 import {formatPrice} from "../../utils/formatPrice.js";
 
-function ProductCard({product, isFavorite, onClickBuy, onToggleFavorite}) {
+function ProductCard({product, quantity, isFavorite, onClickBuy,  onChangeQuantity, onRemove, onToggleFavorite}) {
+  function handleDecrement() {
+    if (quantity > 1) {
+      onChangeQuantity(product.id, quantity - 1);
+    } else {
+      onRemove(product.id);
+    }
+  }
+
+  function handleIncrement() {
+    onChangeQuantity(product.id, quantity + 1);
+  }
+
   return (
     <article className="product">
       <div className="product__image">
@@ -25,7 +37,16 @@ function ProductCard({product, isFavorite, onClickBuy, onToggleFavorite}) {
           </svg>
           {product.rating}
         </div>
-        <button className="product__button button-reset" onClick={() => onClickBuy(product)}>Купить</button>
+
+        { quantity > 0 ? (
+          <div className="product__count">
+            <button className="product__decrement button-reset" onClick={handleDecrement}>−</button>
+            <span className="product__quantity">{quantity}</span>
+            <button className="product__increment button-reset" onClick={handleIncrement}>+</button>
+          </div>
+        ) : (
+          <button className="product__button button-reset" onClick={() => onClickBuy(product)}>Купить</button>
+        )}
       </div>
 
       <button className={`product__favorite button-reset ${isFavorite ? "active" : ""}`}

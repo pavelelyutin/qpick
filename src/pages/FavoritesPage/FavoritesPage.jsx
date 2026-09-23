@@ -3,25 +3,31 @@ import ProductList from '../../components/ProductList/ProductList';
 import { products } from '../../data/products';
 import { PATHS } from '../../routes/paths';
 import './FavoritesPage.scss';
+import favoritesEmptyImage from "../../assets/illustrations/cat.svg";
 
 
 
 function FavoritesPage() {
-  const { favorites, addToCart, toggleFavorite } = useOutletContext();
+  const { cartItems ,favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite } = useOutletContext();
 
   const favoriteProducts = products.filter((product) => favorites.includes(product.id));
 
   if (favoriteProducts.length === 0) {
     return (
-      <div className="favorites-page favorites-page--empty">
-        <h1 className="favorites-page__title">В избранном пусто</h1>
-        <p className="favorites-page__text">
-          Добавляйте товары, нажимая на сердечко в карточке
-        </p>
-        <Link to={PATHS.HOME} className="favorites-page__back">
-          Вернуться в каталог
-        </Link>
-      </div>
+      <section className="section favorites">
+        <div className="container favarites__container">
+          <div className="favorites__empty">
+            <img className="favorites__image" src={favoritesEmptyImage} alt="Изображение пустой корзины"/>
+            <span className="favorites__title">В избранном ничего нет</span>
+            <p className="favorites__description">
+              Чтобы добавить товар в избранное, нажмите на сердечко в карточке товара
+            </p>
+            <Link to={PATHS.HOME} className="favorites__back button-reset">
+              Вернуться в каталог
+            </Link>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -32,8 +38,11 @@ function FavoritesPage() {
         <ProductList
           title=""
           products={favoriteProducts}
+          cartItems={cartItems}
           favorites={favorites}
           onClickBuy={addToCart}
+          onChangeQuantity={changeQuantity}
+          onRemove={removeFromCart}
           onToggleFavorite={toggleFavorite}
         />
       </div>

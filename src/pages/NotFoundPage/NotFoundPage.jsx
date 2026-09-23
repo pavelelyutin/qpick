@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom';
 import { PATHS } from '../../routes/paths';
 import './NotFoundPage.scss';
+import cartEmptyImage from "../../assets/illustrations/cart.svg";
 
 function NotFoundPage() {
   return (
-    <div className="not-found">
-      <h1 className="not-found__title">404</h1>
-      <p className="not-found__text">Страница не найдена</p>
-      <Link to={PATHS.HOME} className="not-found__link">
-        Вернуться в каталог
-      </Link>
-    </div>
+    <section className="section not-found">
+      <div className="container not-found__container">
+        <div className="not-found__empty">
+          <img className="not-found__image" src={cartEmptyImage} alt="Изображение пустой корзины"/>
+          <span className="not-found__title">Корзина пустая</span>
+          <p className="not-found__description">
+            Добавьте товары из каталога, чтобы оформить заказ
+          </p>
+          <Link to={PATHS.HOME} className="not-found__back button-reset">
+            Вернуться в каталог
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 
