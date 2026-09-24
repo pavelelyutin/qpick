@@ -20,7 +20,6 @@ function Layout({ cartItems, favorites, addToCart, removeFromCart, changeQuantit
           }}
         />
       </main>
-
       <Footer/>
     </>
   );

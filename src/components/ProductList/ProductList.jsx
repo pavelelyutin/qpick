@@ -9,7 +9,8 @@ function ProductList({
                        onClickBuy,
                        onChangeQuantity,
                        onRemove,
-                       onToggleFavorite
+                       onToggleFavorite,
+                       onOpenDetails
                      }) {
   if (products.length === 0) return null;
 
@@ -30,6 +31,7 @@ function ProductList({
                            onRemove={onRemove}
                            isFavorite={favorites.includes(product.id)}
                            onToggleFavorite={onToggleFavorite}
+                           onOpenDetails={onOpenDetails}
               />
             </li>
           )

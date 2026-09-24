@@ -13,6 +13,7 @@ export const products = [
   {
     id: 1,
     title: 'Apple BYZ S852I',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2927,
     oldPrice: 3527,
     category: 'wired',
@@ -22,6 +23,7 @@ export const products = [
   {
     id: 2,
     title: 'Apple EarPods',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2327,
     category: 'wired',
     image: imgWired2,
@@ -30,6 +32,7 @@ export const products = [
   {
     id: 3,
     title: 'Apple EarPods',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2327,
     category: 'wired',
     image: imgWired3,
@@ -38,6 +41,7 @@ export const products = [
   {
     id: 4,
     title: 'Apple BYZ S852I',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2927,
     category: 'wired',
     image: imgWired4,
@@ -46,6 +50,7 @@ export const products = [
   {
     id: 5,
     title: 'Apple EarPods',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2327,
     category: 'wired',
     image: imgWired5,
@@ -54,6 +59,7 @@ export const products = [
   {
     id: 6,
     title: 'Apple EarPods',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 2327,
     category: 'wired',
     image: imgWired6,
@@ -62,6 +68,7 @@ export const products = [
   {
     id: 7,
     title: 'Apple AirPods',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 9527,
     category: 'wireless',
     image: imgWireless1,
@@ -70,6 +77,7 @@ export const products = [
   {
     id: 8,
     title: 'GERLAX GH-04',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 6527,
     category: 'wireless',
     image: imgWireless2,
@@ -78,6 +86,7 @@ export const products = [
   {
     id: 9,
     title: 'BOROFONE BO4',
+    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
     price: 7527,
     category: 'wireless',
     image: imgWireless3,

@@ -1,7 +1,7 @@
 import './ProductCard.scss'
 import {formatPrice} from "../../utils/formatPrice.js";
 
-function ProductCard({product, quantity, isFavorite, onClickBuy,  onChangeQuantity, onRemove, onToggleFavorite}) {
+function ProductCard({product, quantity, isFavorite, onClickBuy,  onChangeQuantity, onRemove, onToggleFavorite, onOpenDetails }) {
   function handleDecrement() {
     if (quantity > 1) {
       onChangeQuantity(product.id, quantity - 1);
@@ -16,6 +16,11 @@ function ProductCard({product, quantity, isFavorite, onClickBuy,  onChangeQuanti
 
   return (
     <article className="product">
+      <button className="product__details button-reset" onClick={() => onOpenDetails(product)}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.4905 3.51993C15.8071 -1.16923 8.20916 -1.17389 3.51994 3.50945C-1.16922 8.19291 -1.17393 15.7909 3.50952 20.4801C8.19287 25.1692 15.7909 25.1739 20.4801 20.4905C25.1692 15.8072 25.1739 8.20908 20.4905 3.51993ZM13.6755 19.6145C13.6755 19.7997 13.5255 19.9496 13.3404 19.9496H10.6596C10.4746 19.9496 10.3245 19.7997 10.3245 19.6145V9.66291C10.3245 9.47775 10.4746 9.32781 10.6596 9.32781H13.3404C13.5255 9.32781 13.6755 9.47769 13.6755 9.66291V19.6145ZM12 7.93712C10.9284 7.93712 10.0566 7.06537 10.0566 5.99372C10.0566 4.92218 10.9284 4.05025 12 4.05025C13.0717 4.05025 13.9435 4.92213 13.9435 5.99372C13.9435 7.06537 13.0716 7.93712 12 7.93712Z" fill="#FFA542"/>
+        </svg>
+      </button>
       <div className="product__image">
         <img src={product.image} width={220} alt="Изображение"/>
       </div>

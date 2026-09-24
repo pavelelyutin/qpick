@@ -1,14 +1,17 @@
+import { useState } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import { products } from '../../data/products';
 import { PATHS } from '../../routes/paths';
 import './FavoritesPage.scss';
 import favoritesEmptyImage from "../../assets/illustrations/cat.svg";
-
+import DetailsProductModal from "../../components/DetailsProductModal/DetailsProductModal";
 
 
 function FavoritesPage() {
   const { cartItems ,favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite } = useOutletContext();
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const favoriteProducts = products.filter((product) => favorites.includes(product.id));
 
@@ -46,6 +49,7 @@ function FavoritesPage() {
           onToggleFavorite={toggleFavorite}
         />
       </div>
+      <DetailsProductModal product={selectedProduct} isOpen={selectedProduct !== null} onClose={() => setSelectedProduct(null)} />
     </section>
   )
 }

@@ -45,10 +45,18 @@
     box-sizing: border-box;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-bg);
+}
+
+.body-hidden {
+    overflow: hidden;
 }
 
 #root {
