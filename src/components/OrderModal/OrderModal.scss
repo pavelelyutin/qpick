@@ -1,0 +1,91 @@
+.order {
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+    color: var(--color-dark);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__subtitle {
+    color: var(--color-gray);
+  }
+
+  &__price {
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__label {
+    color: var(--color-text);
+    font-size: 14px;
+  }
+
+  &__input {
+    outline: none;
+    border: 1px solid var(--color-gray);
+    border-radius: 15px;
+    padding: 15px 20px;
+
+    &:focus-visible {
+      border-color: var(--color-orange);
+    }
+
+    &--error {
+      border-color: var(--color-red);
+
+      &:focus {
+        border-color: var(--color-red);
+      }
+    }
+  }
+
+  &__error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    color: var(--color-red);
+  }
+
+  &__submit {
+    border-radius: 20px;
+    padding: 20px;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+    transition: background-color .2s ease;
+
+    &:focus-visible {
+      outline: 2px dotted var(--color-orange);
+      outline-offset: 2px;
+      background-color: var(--color-orange);
+    }
+
+    &:hover:not(:focus-visible) {
+      background-color: var(--color-orange);
+    }
+
+    &:active:not(:focus-visible) {
+      background-color: var(--color-dark);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.details {
+  &__image {
+    max-width: 220px;
+    margin-bottom: 20px;
+
+    @media (max-width: 575.98px) {
+      max-width: 160px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-dark);
+
+    @media (max-width: 575.98px) {
+      font-size: 20px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    color: var(--color-orange);
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

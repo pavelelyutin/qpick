@@ -5,9 +5,12 @@ import { products } from '../../data/products';
 import { PATHS } from '../../routes/paths';
 import CartItem from '../../components/CartItem/CartItem.jsx';
 import CartSummary from '../../components/CartSummary/CartSummary.jsx';
+import OrderModal from '../../components/OrderModal/OrderModal.jsx';
+import {useState} from "react";
 
 function CartPage() {
   const { cartItems, changeQuantity, removeFromCart } = useOutletContext();
+  const [isOrderOpen, setIsOrderOpen] = useState(false);
 
   const itemsWithProducts = cartItems
     .map((item) => {
@@ -57,11 +60,9 @@ function CartPage() {
               </li>
             ))}
           </ul>
-          <CartSummary totalPrice={totalPrice} onCheckout={() => {}} />
+          <CartSummary totalPrice={totalPrice} onOrder={() => setIsOrderOpen(true)} />
         </div>
-
-       {/*<p>Позиций: {cartItems.length}</p>*/}
-       {/* <pre>{JSON.stringify(cartItems, null, 2)}</pre>*/}
+        <OrderModal totalPrice={totalPrice} isOpen={isOrderOpen} onClose={() => setIsOrderOpen(false)} />
       </div>
 
     </section>

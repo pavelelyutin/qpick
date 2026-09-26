@@ -9,12 +9,13 @@ function DetailsProductModal({ product, isOpen, onClose}) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="modal__content details">
         <div className="details__image">
-          <img src={product.image} alt={"Изображение " + product.title}/>
+          <img width={220} src={product.image} alt={"Изображение " + product.title}/>
         </div>
 
         <div className="details__info">
-          <h1 className="details__title">{product.title}</h1>
+          <h3 className="details__title">{product.title}</h3>
           <p className="details__description">{product.description}</p>
+          <span className="details__price">{formatPrice(product.price)}</span>
         </div>
       </div>
     </Modal>
