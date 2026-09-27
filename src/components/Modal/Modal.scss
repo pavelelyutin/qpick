@@ -37,6 +37,35 @@
     position: absolute;
     top: 30px;
     right: 30px;
+    border-radius: 50%;
+
+    svg {
+      display: block;
+      path {
+        transition: fill 0.2s ease;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px dotted var(--color-red);
+      outline-offset: 8px;
+
+      svg path {
+        fill: var(--color-red);
+      }
+    }
+
+    &:hover:not(:focus-visible) {
+      svg path {
+        fill: var(--color-red);
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      svg path {
+        fill: var(--color-dark);
+      }
+    }
   }
 }
 

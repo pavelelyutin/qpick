@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './CartPage.scss';
 import cartEmptyImage from '../../assets/illustrations/cart.svg';
 import { products } from '../../data/products';
@@ -11,6 +12,8 @@ import {useState} from "react";
 function CartPage() {
   const { cartItems, changeQuantity, removeFromCart } = useOutletContext();
   const [isOrderOpen, setIsOrderOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   const itemsWithProducts = cartItems
     .map((item) => {
@@ -28,14 +31,15 @@ function CartPage() {
     return (
       <section className="section cart">
         <div className="container cart__container">
+          <h1 className="cart__title visually-hidden">{t('cart.title')}</h1>
           <div className="cart__empty">
-            <img className="cart__image" src={cartEmptyImage} alt="Изображение пустой корзины"/>
-            <span className="cart__title">Корзина пустая</span>
+            <img className="cart__image" src={cartEmptyImage} alt={t('cart.empty')}/>
+            <span className="cart__subtitle">{t('cart.empty')}</span>
             <p className="cart__description">
-              Добавьте товары из каталога, чтобы оформить заказ
+              {t('cart.emptyText')}
             </p>
             <Link to={PATHS.HOME} className="cart__back button-reset">
-              Вернуться в каталог
+              {t('cart.backToCatalog')}
             </Link>
           </div>
         </div>
@@ -46,8 +50,7 @@ function CartPage() {
   return (
     <section className="section cart">
       <div className="container cart__container">
-        <h2 className="section__title">Корзина</h2>
-
+        <h1 className="cart__title">{t('cart.title')}</h1>
         <div className="cart__wrapper">
           <ul className="cart__list list-reset">
             {itemsWithProducts.map((item) => (

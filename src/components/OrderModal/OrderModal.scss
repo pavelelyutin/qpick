@@ -1,10 +1,22 @@
 .order {
+  &--success {
+    text-align: center;
+  }
+
+  &__image {
+    margin: 0 auto 20px;
+  }
+
   &__title {
     margin: 0;
     margin-bottom: 20px;
     color: var(--color-dark);
     font-size: 20px;
     font-weight: 600;
+  }
+
+  &__text {
+    margin: 0;
   }
 
   &__total {

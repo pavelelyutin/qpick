@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
+import {useState} from 'react';
+import {Link, useOutletContext} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ProductList from '../../components/ProductList/ProductList';
-import { products } from '../../data/products';
-import { PATHS } from '../../routes/paths';
+import {products} from '../../data/products';
+import {PATHS} from '../../routes/paths';
 import './FavoritesPage.scss';
 import favoritesEmptyImage from "../../assets/illustrations/cat.svg";
 import DetailsProductModal from "../../components/DetailsProductModal/DetailsProductModal";
 
 
 function FavoritesPage() {
-  const { cartItems ,favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite } = useOutletContext();
-
+  const {cartItems, favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite} = useOutletContext();
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const { t } = useTranslation();
 
   const favoriteProducts = products.filter((product) => favorites.includes(product.id));
 
@@ -19,14 +21,15 @@ function FavoritesPage() {
     return (
       <section className="section favorites">
         <div className="container favarites__container">
+          <h1 className="favorites__title visually-hidden">{t('favorites.title')}</h1>
           <div className="favorites__empty">
-            <img className="favorites__image" src={favoritesEmptyImage} alt="Изображение пустой корзины"/>
-            <span className="favorites__title">В избранном ничего нет</span>
+            <img className="favorites__image" src={favoritesEmptyImage} alt={t('favorites.empty')} />
+            <span className="favorites__subtitle">{t('favorites.empty')}</span>
             <p className="favorites__description">
-              Чтобы добавить товар в избранное, нажмите на сердечко в карточке товара
+              {t('favorites.emptyText')}
             </p>
             <Link to={PATHS.HOME} className="favorites__back button-reset">
-              Вернуться в каталог
+              {t('favorites.backToCatalog')}
             </Link>
           </div>
         </div>
@@ -35,9 +38,9 @@ function FavoritesPage() {
   }
 
   return (
-    <section className="section favorites">
+    <>
       <div className="container favorites__container">
-        <h1 className="favorites__title">Избранное</h1>
+        <h1 className="favorites__title">{t('favorites.title')}</h1>
         <ProductList
           title=""
           products={favoriteProducts}
@@ -49,8 +52,8 @@ function FavoritesPage() {
           onToggleFavorite={toggleFavorite}
         />
       </div>
-      <DetailsProductModal product={selectedProduct} isOpen={selectedProduct !== null} onClose={() => setSelectedProduct(null)} />
-    </section>
+      <DetailsProductModal product={selectedProduct} isOpen={selectedProduct !== null} onClose={() => setSelectedProduct(null)}/>
+    </>
   )
 }
 

@@ -1,18 +1,22 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Modal from '../Modal/Modal'
 import {formatPrice} from "../../utils/formatPrice";
 import './OrderModal.scss'
+import successImage from '../../assets/illustrations/success.svg'
 
 function OrderModal({ isOpen, onClose, totalPrice }) {
   const [form, setForm] = useState({
     name: '',
     phone: '',
   })
-
   const [errors, setErrors] = useState({})
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const { t } = useTranslation();
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
@@ -21,43 +25,61 @@ function OrderModal({ isOpen, onClose, totalPrice }) {
   };
 
   const validate = () => {
-    const nextErrors = {};
+    const formErrors = {};
 
     if (!form.name.trim()) {
-      nextErrors.name = 'Укажите имя';
+      formErrors.name = t('formErrors.emptyName');
     } else if (form.name.trim().length < 2) {
-      nextErrors.name = 'Имя слишком короткое';
+      formErrors.name = t('formErrors.shortName');
     }
 
     if (!form.phone.trim()) {
-      nextErrors.phone = 'Укажите телефон';
+      formErrors.phone = t('formErrors.emptyPhone');
     } else if (!/^\+?[\d\s()-]{10,}$/.test(form.phone.trim())) {
-      nextErrors.phone = 'Некорректный номер телефона';
+      formErrors.phone = t('formErrors.invalidPhone');
     }
 
-    return nextErrors;
+    return formErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const nextErrors = validate();
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
+    const formErrors = validate();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
       return;
     }
+
+    setIsSubmitted(true);
 
     console.log('Данные форма для отправки:', form);
   };
 
+  const handleClose = () => {
+    setForm({ name: '', phone: '' });
+    setErrors({});
+    setIsSubmitted(false);
+    onClose();
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={handleClose}>
+      {isSubmitted ? (
+        <div className="modal__content order order--success">
+          <img className="order__image" src={successImage} alt=""/>
+          <h3 className="order__title">Заказ оформлен!</h3>
+          <p className="order__text">
+            Мы свяжемся с вами в ближайшее время
+          </p>
+        </div>
+      ) : (
       <div className="modal__content order">
-        <h3 className="order__title">Оформление заказа</h3>
+        <h3 className="order__title">{t('order.title')}</h3>
 
         <form className="order__form form" action="#" method="post" onSubmit={handleSubmit} noValidate>
           <div className="form__field">
-            <label htmlFor="order-name" className="form__label">Имя</label>
+            <label htmlFor="order-name" className="form__label">{t('order.name')}</label>
 
             <input
               id="order-name"
@@ -76,7 +98,7 @@ function OrderModal({ isOpen, onClose, totalPrice }) {
           </div>
 
           <div className="form__field">
-            <label htmlFor="order-phone" className="form__label">Телефон</label>
+            <label htmlFor="order-phone" className="form__label">{t('order.phone')}</label>
 
             <input
               id="order-phone"
@@ -95,13 +117,13 @@ function OrderModal({ isOpen, onClose, totalPrice }) {
           </div>
 
           <div className="order__total">
-            <span className="order__subtitle">Итого:</span>
+            <span className="order__subtitle">{t('order.total')}</span>
             <span className="order__price">{formatPrice(totalPrice)}</span>
           </div>
 
-          <button type="submit" className="form__submit button-reset">Оформить заказ</button>
+          <button type="submit" className="form__submit button-reset">{t('order.submit')}</button>
         </form>
-      </div>
+      </div>)}
     </Modal>
   )
 }

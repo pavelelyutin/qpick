@@ -1,7 +1,9 @@
 import './CartItem.scss'
+import { useTranslation } from 'react-i18next'
 import { formatPrice } from '../../utils/formatPrice';
 
 function CartItem({ item, onChangeQuantity, onRemove }) {
+  const { t } = useTranslation();
 
   function handleDecrement() {
     if (item.quantity > 1) {
@@ -20,7 +22,7 @@ function CartItem({ item, onChangeQuantity, onRemove }) {
 
       <div className="cart-product__top">
         <div className="cart-product__image">
-          <img src={item.image} width={150} alt={"Изображение " + item.title}/>
+          <img src={item.image} width={150} alt={item.title}/>
         </div>
         <div className="cart-product__info">
           <h3 className="cart-product__title">{item.title}</h3>
@@ -30,9 +32,9 @@ function CartItem({ item, onChangeQuantity, onRemove }) {
 
       <div className="cart-product__bottom">
         <div className="cart-product__count">
-          <button className="cart-product__button button-reset" onClick={handleDecrement}>−</button>
+          <button className="cart-product__button button-reset" onClick={handleDecrement} aria-label={t('product.decrement')}>−</button>
           <span className="cart-product__quantity">{item.quantity}</span>
-          <button className="cart-product__button button-reset" onClick={handleIncrement}>+</button>
+          <button className="cart-product__button button-reset" onClick={handleIncrement} aria-label={t('product.increment')}>+</button>
         </div>
         <span className="cart-product__summary">{formatPrice(item.price * item.quantity)}</span>
       </div>

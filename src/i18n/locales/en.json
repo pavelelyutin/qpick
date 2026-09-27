@@ -1,0 +1,59 @@
+{
+  "header": {
+    "favorites": "Favorites",
+    "cart": "Cart"
+  },
+  "catalog": {
+    "title": "Product catalog",
+    "wired": "Headphones",
+    "wireless": "Wireless headphones"
+  },
+  "product": {
+    "buy": "Buy",
+    "details": "Product details",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites",
+    "decrement": "Reduce the quantity",
+    "increment": "Increase the quantity"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Cart is empty",
+    "emptyText": "Add products from the catalog to checkout",
+    "backToCatalog": "Back to catalog",
+    "total": "Total",
+    "order": "Proceed to checkout"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "Favorites is empty",
+    "emptyText": "Add products by clicking the heart on a card",
+    "backToCatalog": "Back to catalog"
+  },
+  "footer": {
+    "favorites": "Favorites",
+    "cart": "Cart",
+    "contacts": "Contacts",
+    "terms": "Terms of service"
+  },
+  "order": {
+    "title": "Placing an order",
+    "name": "Name",
+    "phone": "Phone",
+    "total": "Total:",
+    "submit": "Place order",
+    "success": "Order placed!",
+    "successText": "We will contact you shortly"
+  },
+  "formErrors": {
+    "emptyName": "Enter your name",
+    "emptyPhone": "Enter your phone",
+    "shortName": "The name is too short",
+    "invalidPhone": "Invalid phone number"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "Check the page address, it might be incorrect",
+    "back": "Back to catalog"
+  }
+}

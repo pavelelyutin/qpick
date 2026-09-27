@@ -67,7 +67,7 @@ body {
 
 main {
     flex: 1;
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: 30px;
 }
 
@@ -75,6 +75,15 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+.visually-hidden {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .list-reset {
