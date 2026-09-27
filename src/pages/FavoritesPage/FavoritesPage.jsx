@@ -1,12 +1,12 @@
-import {useState} from 'react';
-import {Link, useOutletContext} from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import ProductList from '../../components/ProductList/ProductList';
-import {products} from '../../data/products';
-import {PATHS} from '../../routes/paths';
 import './FavoritesPage.scss';
 import favoritesEmptyImage from "../../assets/illustrations/favorites.svg";
+import { useState } from 'react';
+import { Link, useOutletContext } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import ProductList from '../../components/ProductList/ProductList';
 import DetailsProductModal from "../../components/DetailsProductModal/DetailsProductModal";
+import {products} from '../../data/products';
+import {PATHS} from '../../routes/paths';
 
 
 function FavoritesPage() {

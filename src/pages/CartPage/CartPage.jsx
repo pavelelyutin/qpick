@@ -1,8 +1,8 @@
+import './CartPage.scss';
+import cartEmptyImage from '../../assets/illustrations/cart.svg';
 import { Link, useOutletContext } from 'react-router-dom';
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
-import './CartPage.scss';
-import cartEmptyImage from '../../assets/illustrations/cart.svg';
 import {products} from '../../data/products';
 import {PATHS} from '../../routes/paths';
 import CartItem from '../../components/CartItem/CartItem';

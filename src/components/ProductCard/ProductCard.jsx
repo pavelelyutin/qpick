@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import './ProductCard.scss'
-import {formatPrice} from "../../utils/formatPrice.js";
+import {formatPrice} from "../../utils/formatPrice";
 
 function ProductCard({product, quantity, isFavorite, onClickBuy,  onChangeQuantity, onRemove, onToggleFavorite, onOpenDetails }) {
   function handleDecrement() {

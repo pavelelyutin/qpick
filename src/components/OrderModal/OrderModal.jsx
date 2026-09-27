@@ -54,7 +54,7 @@ function OrderModal({ isOpen, onClose, totalPrice, onSuccess }) {
     setIsSubmitted(true);
     onSuccess();
 
-    console.log('Данные форма для отправки:', form);
+    console.log('Данные формы для отправки:', form);
   };
 
   const handleClose = () => {
@@ -69,9 +69,9 @@ function OrderModal({ isOpen, onClose, totalPrice, onSuccess }) {
       {isSubmitted ? (
         <div className="modal__content order order--success">
           <img className="order__image" src={successImage} alt=""/>
-          <h3 className="order__title">Заказ оформлен!</h3>
+          <h3 className="order__title">{t('order.success')}</h3>
           <p className="order__text">
-            Мы свяжемся с вами в ближайшее время
+            {t('order.successText')}
           </p>
         </div>
       ) : (

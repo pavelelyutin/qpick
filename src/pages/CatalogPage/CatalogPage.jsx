@@ -1,7 +1,7 @@
 import './CatalogPage.scss';
 import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { products } from '../../data/products.js'
+import { products } from '../../data/products'
 import ProductList from '../../components/ProductList/ProductList'
 import DetailsProductModal from "../../components/DetailsProductModal/DetailsProductModal";
 import {useTranslation} from "react-i18next";

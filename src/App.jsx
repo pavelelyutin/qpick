@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PATHS } from "./routes/paths.js";
+import { PATHS } from "./routes/paths";
 import Layout from "./components/Layout/Layout";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import CartPage from "./pages/CartPage/CartPage";

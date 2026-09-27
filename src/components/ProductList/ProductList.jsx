@@ -24,14 +24,15 @@ function ProductList({
 
           return (
             <li className="products__item" key={product.id}>
-              <ProductCard product={product}
-                           quantity={quantity}
-                           onClickBuy={onClickBuy}
-                           onChangeQuantity={onChangeQuantity}
-                           onRemove={onRemove}
-                           isFavorite={favorites.includes(product.id)}
-                           onToggleFavorite={onToggleFavorite}
-                           onOpenDetails={onOpenDetails}
+              <ProductCard
+                product={product}
+                quantity={quantity}
+                onClickBuy={onClickBuy}
+                onChangeQuantity={onChangeQuantity}
+                onRemove={onRemove}
+                isFavorite={favorites.includes(product.id)}
+                onToggleFavorite={onToggleFavorite}
+                onOpenDetails={onOpenDetails}
               />
             </li>
           )
