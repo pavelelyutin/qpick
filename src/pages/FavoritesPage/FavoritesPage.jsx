@@ -5,7 +5,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import {products} from '../../data/products';
 import {PATHS} from '../../routes/paths';
 import './FavoritesPage.scss';
-import favoritesEmptyImage from "../../assets/illustrations/cat.svg";
+import favoritesEmptyImage from "../../assets/illustrations/favorites.svg";
 import DetailsProductModal from "../../components/DetailsProductModal/DetailsProductModal";
 
 

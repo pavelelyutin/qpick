@@ -5,7 +5,7 @@ import {formatPrice} from "../../utils/formatPrice";
 import './OrderModal.scss'
 import successImage from '../../assets/illustrations/success.svg'
 
-function OrderModal({ isOpen, onClose, totalPrice }) {
+function OrderModal({ isOpen, onClose, totalPrice, onSuccess }) {
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -52,6 +52,7 @@ function OrderModal({ isOpen, onClose, totalPrice }) {
     }
 
     setIsSubmitted(true);
+    onSuccess();
 
     console.log('Данные форма для отправки:', form);
   };

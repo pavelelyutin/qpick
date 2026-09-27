@@ -6,7 +6,6 @@ import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import CartPage from "./pages/CartPage/CartPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import './App.scss';
 
 const CART_KEY = 'qpick_cart';
 const FAVORITES_KEY = 'qpick_favorites';
@@ -66,6 +65,10 @@ function App() {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -77,6 +80,7 @@ function App() {
             removeFromCart={removeFromCart}
             changeQuantity={changeQuantity}
             toggleFavorite={toggleFavorite}
+            clearCart={clearCart}
           />
         }>
           <Route index element={<CatalogPage />} />

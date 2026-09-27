@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './Layout.scss';
 
-function Layout({ cartItems, favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite }) {
+function Layout({ cartItems, favorites, addToCart, removeFromCart, changeQuantity, toggleFavorite, clearCart }) {
   return (
     <>
       <Header cartItems={cartItems} favorites={favorites} />
@@ -17,6 +17,7 @@ function Layout({ cartItems, favorites, addToCart, removeFromCart, changeQuantit
             removeFromCart,
             changeQuantity,
             toggleFavorite,
+            clearCart,
           }}
         />
       </main>
