@@ -1,19 +1,19 @@
 // Импортируем картинки — Vite вернёт путь к собранному файлу
-import imgWired1 from '../assets/images/wired/1.png';
-import imgWired2 from '../assets/images/wired/2.png';
-import imgWired3 from '../assets/images/wired/3.png';
-import imgWired4 from '../assets/images/wired/4.png';
-import imgWired5 from '../assets/images/wired/5.png';
-import imgWired6 from '../assets/images/wired/6.png';
-import imgWireless1 from '../assets/images/wireless/1.png';
-import imgWireless2 from '../assets/images/wireless/2.png';
-import imgWireless3 from '../assets/images/wireless/3.png';
+import imgWired1 from '../assets/images/wired/Apple_BYZ_S852I.webp';
+import imgWired2 from '../assets/images/wired/Apple_EarPods_1.webp';
+import imgWired3 from '../assets/images/wired/Apple_EarPods_2.webp';
+import imgWired4 from '../assets/images/wired/Marshall_Major_3.webp';
+import imgWired5 from '../assets/images/wired/JBL_T110.webp';
+import imgWired6 from '../assets/images/wired/Razer_BlackShark.webp';
+import imgWireless1 from '../assets/images/wireless/Apple_AirPods.webp';
+import imgWireless2 from '../assets/images/wireless/GERLAX_GH04.webp';
+import imgWireless3 from '../assets/images/wireless/BOROFONE_BO4.webp';
 
 export const products = [
   {
     id: 1,
     title: 'Apple BYZ S852I',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    description: 'Проводные наушники-вкладыши BYZ S852i с разъемом Lightning — это бюджетный аналог наушников Apple EarPods с микрофоном и пультом управления. Данная модель позиционируется как доступная замена оригинальным аксессуарам Apple с цифровым подключением через порт Lightning.',
     price: 2927,
     oldPrice: 3527,
     category: 'wired',
@@ -22,8 +22,8 @@ export const products = [
   },
   {
     id: 2,
-    title: 'Apple EarPods',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    title: 'Apple EarPods 1',
+    description: 'Проводная гарнитура Apple EarPods (Lightning) совместима с устройствами Apple, в которых используется разъем подключения Lightning. Эргономичность наушников обеспечивается благодаря обтекаемой форме белых пластиковых вкладышей, которые повторяют контуры ушной раковины. Динамические излучатели формируют насыщенное и четкое звучание. Интегрированный микрофон отвечает за передачу чистого голоса. На проводе гарнитуры Apple EarPods (Lightning) есть пульт для управления воспроизведением музыки, ответа на звонки и регулировки громкости.',
     price: 2327,
     category: 'wired',
     image: imgWired2,
@@ -31,8 +31,8 @@ export const products = [
   },
   {
     id: 3,
-    title: 'Apple EarPods',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    title: 'Apple EarPods 2',
+    description: 'Проводная гарнитура Apple EarPods (USB-C) подключается к устройствам Apple через интерфейс USB Type-C. Открытая акустическая система гарантирует чистое воспроизведение аудио. Форма вкладышей адаптирована с учетом особенностей ушной раковины, что обеспечивает комфорт в использовании гарнитуры Apple EarPods. На кабеле расположен пульт с интегрированным микрофоном и кнопками управления. Простыми нажатиями можно регулировать громкость звука, принимать звонки и завершать их, переключать музыкальные треки.',
     price: 2327,
     category: 'wired',
     image: imgWired3,
@@ -40,8 +40,8 @@ export const products = [
   },
   {
     id: 4,
-    title: 'Apple BYZ S852I',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    title: 'Marshall Major III',
+    description: 'Наушники MARSHALL MAJOR III представляют собой многофункциональный аксессуар, при помощи которого вы сможете не только наслаждаться любимыми композициями. Так, он позволит вам разговаривать по телефону и общаться в различных мессенджерах благодаря встроенному микрофону.',
     price: 2927,
     category: 'wired',
     image: imgWired4,
@@ -49,8 +49,8 @@ export const products = [
   },
   {
     id: 5,
-    title: 'Apple EarPods',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    title: 'JBL T110',
+    description: 'Предпочитаете слушать музыку, пребывая в движении? Тогда остановите свой выбор на наушниках JBL T110. Это легкий и компактный аксессуар, чьи вставные амбушюры из силикона обеспечат надежное закрепление их в ухе без риска выпадения. О том, что вы услышите качественный объемный сбалансированный звук, говорят диапазон частот от 20 до 20000 Гц, сопротивление в 16 Ом, мембраны диаметром в 8.6 мм и закрытый тип акустического оформления. JBL T110 отличаются наличием микрофона для комфортного общения и функциональных клавиш.',
     price: 2327,
     category: 'wired',
     image: imgWired5,
@@ -58,8 +58,8 @@ export const products = [
   },
   {
     id: 6,
-    title: 'Apple EarPods',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    title: 'Razer BlackShark',
+    description: 'Проводная гарнитура Razer Blackshark V2 X оформлена в корпусе белого цвета. Модель создана специально для геймеров. Она обеспечивает погружение в реалистичный и детализированный звук, за создание которого отвечают система 7.1 Virtual и динамики TriForce 50 мм с титановым покрытием диафрагмы. Съемный кардиоидный микрофон HyperСlear обеспечивает чистоту передачи голоса во время общения.',
     price: 2327,
     category: 'wired',
     image: imgWired6,
@@ -68,7 +68,7 @@ export const products = [
   {
     id: 7,
     title: 'Apple AirPods',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    description: 'Наушники TWS Apple AirPods Pro 3 2025 выполнены в белом цвете. Влагозащищенный корпус позволит активно заниматься спортом, в том числе на улице во время атмосферных осадков. Модель позволит контролировать частоту сердечных сокращений. Закрытое акустическое оформление обеспечит шумоизоляцию от звуков извне. Для безопасного использования наушников на улице предусмотрен режим Talk Through. Динамические излучатели гарантируют оптимальное звучание любого аудио-контента.',
     price: 9527,
     category: 'wireless',
     image: imgWireless1,
@@ -77,7 +77,7 @@ export const products = [
   {
     id: 8,
     title: 'GERLAX GH-04',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    description: 'Модель позиционируется как бюджетная беспроводная гарнитура для повседневного использования. Наушники автоматически сопрягаются со смартфоном при извлечении из кейса, поддерживают базовые мультимедийные функции и управление вызовами с помощью сенсорных касаний. Совместимы с устройствами на базе Android и iOS.',
     price: 6527,
     category: 'wireless',
     image: imgWireless2,
@@ -86,7 +86,7 @@ export const products = [
   {
     id: 9,
     title: 'BOROFONE BO4',
-    description: 'Проводные наушники с разъёмом Lightning. Чистый звук, удобная посадка, встроенный пульт управления и микрофон. Идеальны для повседневного использования с iPhone и iPad.',
+    description: 'Borofone B04 - беспроводные накладные наушники с микрофоном, воспроизведением с TF карт, AUX режимом и 5 часами в режиме разговора и воспроизведения музыки.',
     price: 7527,
     category: 'wireless',
     image: imgWireless3,
